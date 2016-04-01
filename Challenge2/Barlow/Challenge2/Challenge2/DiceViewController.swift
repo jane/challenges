@@ -14,6 +14,8 @@ class DiceViewController:UIViewController {
     @IBOutlet weak var rollButton: BFPaperButton!
     @IBOutlet var diceButtons: [UIButton]!
     @IBOutlet weak var endRoundButton: BFPaperButton!
+    @IBOutlet weak var highScoreLabel: UILabel!
+    @IBOutlet weak var currentScoreLabel: UILabel!
     
     //MARK: - Private Variables
     private let diceRoller: DiceRoller = DiceRoller(numberOfDice: 3)
@@ -36,15 +38,19 @@ class DiceViewController:UIViewController {
     private func updateView() {
         self.endRoundButton.hidden = !self.diceRoller.isGameStarted
         self.setDiceButtonImages()
+        self.currentScoreLabel.text = "\(self.diceRoller.currentScore)"
+        self.highScoreLabel.text = "\(self.diceRoller.highScore)"
+        
+        let title:String = self.diceRoller.isGameOver ? "GAME OVER! Start Over" : "Roll!"
+        self.rollButton.setTitle(title, forState: .Normal)
+        self.rollButton.backgroundColor = self.diceRoller.isGameOver ? UIColor(red: 173/255, green: 49/255, blue: 49/255, alpha: 1.0) : UIColor(red: 0/255, green: 34/255, blue: 72/255, alpha: 1.0)
     }
     
     //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.rollButton.backgroundColor = UIColor(red: 0/255, green: 34/255, blue: 72/255, alpha: 1.0)
         self.rollButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-        
         self.updateView()
     }
     
@@ -55,8 +61,7 @@ class DiceViewController:UIViewController {
     }
     
     @IBAction func dieTapped(sender: UIButton) {
-        let die:Dice = self.diceRoller.dice[self.indexForDie(sender)]
-        die.isLocked = !die.isLocked
+        self.diceRoller.lockDie(atIndex: self.diceButtons.indexOf(sender)!)
     }
     @IBAction func endRoundTapped(sender: AnyObject) {
         self.diceRoller.endRound()

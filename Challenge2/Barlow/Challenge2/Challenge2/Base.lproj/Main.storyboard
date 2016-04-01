@@ -51,14 +51,25 @@
                                     <action selector="rollTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZiN-Ot-vIX"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="etF-UM-6lv">
-                                <rect key="frame" x="538" y="28" width="42" height="21"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KZc-Jx-c5m" customClass="BFPaperButton">
+                                <rect key="frame" x="178" y="350" width="245" height="65"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="65" id="Stk-PF-W6U"/>
+                                    <constraint firstAttribute="width" constant="245" id="xt0-jt-jFG"/>
+                                </constraints>
+                                <state key="normal" title="End Round"/>
+                                <connections>
+                                    <action selector="endRoundTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ukK-ip-0Dv"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="etF-UM-6lv">
+                                <rect key="frame" x="569" y="28" width="11" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tqd-Qe-wXg">
-                                <rect key="frame" x="538" y="57" width="42" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tqd-Qe-wXg">
+                                <rect key="frame" x="569" y="57" width="11" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -74,38 +85,45 @@
                                     <action selector="dieTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HJW-xa-NfR"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KZc-Jx-c5m" customClass="BFPaperButton">
-                                <rect key="frame" x="178" y="350" width="245" height="65"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="65" id="Stk-PF-W6U"/>
-                                    <constraint firstAttribute="width" constant="245" id="xt0-jt-jFG"/>
-                                </constraints>
-                                <state key="normal" title="End Round"/>
-                                <connections>
-                                    <action selector="endRoundTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ukK-ip-0Dv"/>
-                                </connections>
-                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Score:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sGv-f7-ktQ">
+                                <rect key="frame" x="449" y="57" width="112" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="High Score:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yG6-Io-V7Y">
+                                <rect key="frame" x="471" y="28" width="90" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="yG6-Io-V7Y" firstAttribute="centerY" secondItem="etF-UM-6lv" secondAttribute="centerY" id="3hg-lx-jbV"/>
                             <constraint firstItem="HHz-Jt-g1x" firstAttribute="centerX" secondItem="NYl-WZ-FpF" secondAttribute="centerX" id="3re-zW-vyJ"/>
+                            <constraint firstItem="etF-UM-6lv" firstAttribute="leading" secondItem="yG6-Io-V7Y" secondAttribute="trailing" constant="8" id="4kc-mQ-Dq3"/>
                             <constraint firstItem="KZc-Jx-c5m" firstAttribute="top" secondItem="HHz-Jt-g1x" secondAttribute="bottom" constant="18" id="Ac3-kD-8Uu"/>
                             <constraint firstItem="NYl-WZ-FpF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="AkD-VF-Nio"/>
                             <constraint firstItem="Tqd-Qe-wXg" firstAttribute="top" secondItem="etF-UM-6lv" secondAttribute="bottom" constant="8" id="An9-62-3en"/>
                             <constraint firstItem="NYl-WZ-FpF" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="105" id="B4Z-r8-gEV"/>
                             <constraint firstItem="NYl-WZ-FpF" firstAttribute="leading" secondItem="Sw6-iD-c0B" secondAttribute="trailing" constant="10" id="Ddi-p9-8yb"/>
                             <constraint firstItem="KZc-Jx-c5m" firstAttribute="centerX" secondItem="HHz-Jt-g1x" secondAttribute="centerX" id="SL5-X9-lAD"/>
+                            <constraint firstItem="Tqd-Qe-wXg" firstAttribute="leading" secondItem="sGv-f7-ktQ" secondAttribute="trailing" constant="8" id="Swa-nE-mQU"/>
                             <constraint firstAttribute="trailingMargin" secondItem="etF-UM-6lv" secondAttribute="trailing" id="Xyy-xZ-yTs"/>
                             <constraint firstItem="HHz-Jt-g1x" firstAttribute="top" secondItem="NYl-WZ-FpF" secondAttribute="bottom" constant="38" id="b6q-PZ-b6t"/>
                             <constraint firstItem="etF-UM-6lv" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="erZ-Rg-tBl"/>
                             <constraint firstItem="Tqd-Qe-wXg" firstAttribute="trailing" secondItem="etF-UM-6lv" secondAttribute="trailing" id="stW-By-rkz"/>
                             <constraint firstItem="pY9-eS-pcK" firstAttribute="leading" secondItem="NYl-WZ-FpF" secondAttribute="trailing" constant="10" id="tgN-QB-hcI"/>
                             <constraint firstItem="NYl-WZ-FpF" firstAttribute="centerY" secondItem="pY9-eS-pcK" secondAttribute="centerY" id="uQ1-fu-sQW"/>
+                            <constraint firstItem="sGv-f7-ktQ" firstAttribute="centerY" secondItem="Tqd-Qe-wXg" secondAttribute="centerY" id="xBp-af-bHR"/>
                             <constraint firstItem="Sw6-iD-c0B" firstAttribute="centerY" secondItem="NYl-WZ-FpF" secondAttribute="centerY" id="xbK-Bn-7NW"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="currentScoreLabel" destination="Tqd-Qe-wXg" id="dJc-Ek-4YC"/>
                         <outlet property="endRoundButton" destination="KZc-Jx-c5m" id="zOC-ke-hZ8"/>
+                        <outlet property="highScoreLabel" destination="etF-UM-6lv" id="ArZ-si-3O7"/>
                         <outlet property="rollButton" destination="HHz-Jt-g1x" id="lIN-6Q-pjf"/>
                         <outletCollection property="diceButtons" destination="Sw6-iD-c0B" collectionClass="NSMutableArray" id="Lx2-Jp-Mm9"/>
                         <outletCollection property="diceButtons" destination="NYl-WZ-FpF" collectionClass="NSMutableArray" id="h8U-ws-4Eo"/>
