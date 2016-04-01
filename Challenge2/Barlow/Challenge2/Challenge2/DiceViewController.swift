@@ -43,7 +43,7 @@ class DiceViewController:UIViewController {
         
         let title:String = self.diceRoller.isGameOver ? "GAME OVER! Start Over" : "Roll!"
         self.rollButton.setTitle(title, forState: .Normal)
-        self.rollButton.backgroundColor = self.diceRoller.isGameOver ? UIColor(red: 173/255, green: 49/255, blue: 49/255, alpha: 1.0) : UIColor(red: 0/255, green: 34/255, blue: 72/255, alpha: 1.0)
+        self.rollButton.backgroundColor = self.diceRoller.isGameOver ? DiceStyleKit.gameOver : DiceStyleKit.rollColor
     }
     
     //MARK: - Life Cycle
@@ -51,6 +51,8 @@ class DiceViewController:UIViewController {
         super.viewDidLoad()
         
         self.rollButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        self.endRoundButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        self.endRoundButton.backgroundColor = DiceStyleKit.greenDie
         self.updateView()
     }
     
@@ -62,6 +64,7 @@ class DiceViewController:UIViewController {
     
     @IBAction func dieTapped(sender: UIButton) {
         self.diceRoller.lockDie(atIndex: self.diceButtons.indexOf(sender)!)
+        self.updateView()
     }
     @IBAction func endRoundTapped(sender: AnyObject) {
         self.diceRoller.endRound()

@@ -12,8 +12,8 @@ class Dice {
     var value:Int
     var isLocked:Bool = false
     var image:UIImage {
-        guard self.value <= 6 && self.value >= 1 else { return UIImage(named: "1")! }
-        return UIImage(named: "\(self.value)")!
+        let color: UIColor = self.value == 3 ? DiceStyleKit.redDie : self.isLocked ? DiceStyleKit.greenDie : DiceStyleKit.blueDie
+        return DiceStyleKit.imageOfDie(diceColor: color, dots: CGFloat(self.value))
     }
     
     init() {

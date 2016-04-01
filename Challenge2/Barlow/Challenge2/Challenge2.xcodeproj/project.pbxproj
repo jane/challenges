@@ -18,6 +18,8 @@
 		B377AF071CAF0DD8000C974E /* DiceRoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = B377AF051CAF0DD8000C974E /* DiceRoller.swift */; };
 		B377AF091CAF0DE2000C974E /* Dice.swift in Sources */ = {isa = PBXBuildFile; fileRef = B377AF081CAF0DE2000C974E /* Dice.swift */; };
 		B377AF0A1CAF0DE2000C974E /* Dice.swift in Sources */ = {isa = PBXBuildFile; fileRef = B377AF081CAF0DE2000C974E /* Dice.swift */; };
+		B377AF0C1CAF2E63000C974E /* DiceStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B377AF0B1CAF2E63000C974E /* DiceStyleKit.swift */; };
+		B377AF0D1CAF2E63000C974E /* DiceStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B377AF0B1CAF2E63000C974E /* DiceStyleKit.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +47,7 @@
 		B377AF031CAF0B41000C974E /* DiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiceViewController.swift; sourceTree = "<group>"; };
 		B377AF051CAF0DD8000C974E /* DiceRoller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiceRoller.swift; sourceTree = "<group>"; };
 		B377AF081CAF0DE2000C974E /* Dice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dice.swift; sourceTree = "<group>"; };
+		B377AF0B1CAF2E63000C974E /* DiceStyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiceStyleKit.swift; sourceTree = "<group>"; };
 		D89BB91C6C2466F68DB6CBD8 /* Pods_Challenge2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Challenge2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -120,6 +123,7 @@
 		B377AEFF1CAF07DC000C974E /* App */ = {
 			isa = PBXGroup;
 			children = (
+				B377AF0B1CAF2E63000C974E /* DiceStyleKit.swift */,
 				B377AEDF1CAF0738000C974E /* AppDelegate.swift */,
 				B377AEEB1CAF0738000C974E /* Info.plist */,
 			);
@@ -313,6 +317,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B377AF0C1CAF2E63000C974E /* DiceStyleKit.swift in Sources */,
 				B377AEE01CAF0738000C974E /* AppDelegate.swift in Sources */,
 				B377AF041CAF0B41000C974E /* DiceViewController.swift in Sources */,
 				B377AF091CAF0DE2000C974E /* Dice.swift in Sources */,
@@ -327,6 +332,7 @@
 				B377AF071CAF0DD8000C974E /* DiceRoller.swift in Sources */,
 				B377AF0A1CAF0DE2000C974E /* Dice.swift in Sources */,
 				B377AEF51CAF0738000C974E /* Challenge2Tests.swift in Sources */,
+				B377AF0D1CAF2E63000C974E /* DiceStyleKit.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

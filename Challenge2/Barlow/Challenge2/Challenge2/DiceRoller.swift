@@ -19,6 +19,12 @@ class DiceRoller {
     private(set) var isGameStarted:Bool = false
     private(set) var highScore:Int = 0
     
+    private func setHighScore() {
+        self.highScore = max(self.currentScore, self.highScore)
+        NSUserDefaults.standardUserDefaults().setValue(self.highScore, forKey: "HighScore")
+        NSUserDefaults.standardUserDefaults().synchronize()
+    }
+    
     init(numberOfDice:Int) {
         var newDice:[Dice] = []
         
@@ -28,9 +34,14 @@ class DiceRoller {
         }
         
         self.dice = newDice
+        
+        self.highScore = NSUserDefaults.standardUserDefaults().valueForKey("HighScore") as? Int ?? 0
     }
     
     func rollDice() {
+        if self.isGameOver {
+            self.reset()
+        }
         self.isGameStarted = true
         self.isGameOver = false
         
@@ -39,16 +50,30 @@ class DiceRoller {
             if die.value == self.gameOverValue {
                 self.isGameOver = true
                 self.isGameStarted = false
-                self.highScore = max(self.currentScore, self.highScore)
+                self.setHighScore()
                 self.currentScore = 0
             }
         }
     }
     
     func lockDie(atIndex index:Int) {
+        guard self.isGameStarted else { return }
+        
         let die:Dice = self.dice[index]
         die.isLocked = !die.isLocked
-        self.lockedValue = die.value
+        if die.isLocked {
+            self.lockedValue = die.value
+            
+            for die in self.dice {
+                if die.value != self.lockedValue && die.isLocked {
+                    die.isLocked = false
+                }
+            }
+            
+        } else {
+            self.lockedValue = 0
+        }
+        
     }
     
     func reset() {
@@ -64,7 +89,7 @@ class DiceRoller {
         
         if !self.isGameOver {
             self.currentScore += roundScore
-            self.highScore = max(self.currentScore, self.highScore)
+            self.setHighScore()
         }
         
         self.reset()
