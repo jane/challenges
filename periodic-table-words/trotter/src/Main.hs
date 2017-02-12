@@ -3,7 +3,7 @@
 module Main where
 
 import Control.Monad
-import Data.Char hiding (toLower)
+import Data.Char
 import Data.Csv
 import Data.Either
 import Generics.Deriving
@@ -22,35 +22,36 @@ main = do
   csv <- BS.readFile "data/periodic-table.csv"
   challenges <- T.lines <$> T.readFile "data/dictionary.txt"
   let
-    decodeOptions = defaultDecodeOptions { decDelimiter = fromIntegral (ord '\t') } 
-    Right elements = V.modify (VI.sortBy greaterElementWeight) . snd
-      <$> decodeByNameWith decodeOptions csv :: Either String (V.Vector Element)
     -- challenges = [ "functions", "bacon", "poison", "sickness", "ticklish" ]
-    results = filter (\(Result (result, _)) -> result /= "")
-      $ buildWordFromElements elements <$> challenges
+
+    decodeOptions = defaultDecodeOptions { decDelimiter = fromIntegral (ord '\t') }
+    Right unSortedElements = snd <$> decodeByNameWith decodeOptions csv
+
+    elements = V.toList $ V.modify (VI.sortBy greaterElementWeight) unSortedElements
+    results = filter nonEmptyResult $ buildWordFromElements elements <$> challenges
+
   void $ sequence $ print <$> results
 
 data Element = Element
-  { element :: !T.Text
-  , symbol :: !T.Text
-  , z :: !Int
+  { element      :: !T.Text
+  , symbol       :: !T.Text
+  , z            :: !Int
   , atomicWeight :: !AtomicWeight
-  , c :: !(Maybe Double)
-  } deriving (Generic, Show)
+  , c            :: !(Maybe Double)
+  } deriving (Generic)
 
 instance FromNamedRecord Element
 instance DefaultOrdered Element
 
 newtype AtomicWeight = AtomicWeight Double
-  deriving (Eq, Ord, Show)
+  deriving (Eq, Ord)
 
 instance FromField AtomicWeight where
-  parseField s = case runParser (parseField (BSNL.filter (\c -> c /= BS.c2w '(' && c /= BS.c2w ')') s)) of
-    Left err -> pure $ AtomicWeight 0
-    Right n  -> pure $ AtomicWeight n
-
-instance Eq Element where
-  l == r = atomicWeight l == atomicWeight r
+  parseField s =
+    let cleanedS = BSNL.filter (\c -> c /= BS.c2w '(' && c /= BS.c2w ')') s
+    in case runParser (parseField cleanedS) of
+      Left err -> pure $ AtomicWeight 0
+      Right n  -> pure $ AtomicWeight n
 
 greaterElementWeight :: Element -> Element -> Ordering
 greaterElementWeight l r =
@@ -60,22 +61,27 @@ greaterElementWeight l r =
     EQ -> EQ
 
 newtype Result = Result (T.Text, [T.Text])
-  deriving Eq
 
 instance Show Result where
   show (Result (word, parts)) = T.unpack word ++ " (" ++ T.unpack (T.intercalate ", " parts) ++ ")"
 
-buildWordFromElements :: V.Vector Element -> T.Text -> Result
+nonEmptyResult :: Result -> Bool
+nonEmptyResult (Result result) =
+  case result of
+    ("", _) -> False
+    _       -> True
+
+buildWordFromElements :: [Element] -> T.Text -> Result
 buildWordFromElements elements word = Result (result, parts)
   where
     (result, parts) = findNextPart word "" []
 
     findNextPart "" resultSoFar partsSoFar = (resultSoFar, partsSoFar)
     findNextPart remainingChars resultSoFar partsSoFar =
-      let matches = V.filter (flip T.isPrefixOf remainingChars . T.toLower . symbol) elements
+      let matches = filter (flip T.isPrefixOf remainingChars . T.toLower . symbol) elements
       in if null matches
         then ("", [])
-        else let match = V.head matches
+        else let match = head matches
              in findNextPart (T.drop (T.length (symbol match)) remainingChars)
                              (resultSoFar `T.append` symbol match)
                              (partsSoFar ++ [T.toLower (element match)])
