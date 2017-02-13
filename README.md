@@ -3,6 +3,7 @@
 1. Developer Challenges are optional.  If you don't have time to do a task, don't feel like you have to do it.
 2. The challenges should not take any longer than 60 minutes to complete.  If you hit 60 minutes, you should stop and share what you have.
 3. Solutions (complete or works-in-progress) should be posted in this repo.  
+4. New Challenges will be added to this repo on Friday morning.
 
 
 ## Posting your code:
