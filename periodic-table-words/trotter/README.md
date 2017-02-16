@@ -13,6 +13,16 @@ See [src/Main.hs](https://github.com/jane/challenges/blob/master/periodic-table-
 
 ## build/run
 
-`stack build`
+Install `stack`:
 
-`stack exec periodic-table-words`
+```sh
+brew install haskell-stack
+stack setup
+```
+
+Build and run
+
+```sh
+stack build
+stack exec periodic-table-words
+```
