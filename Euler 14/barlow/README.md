@@ -1,7 +1,10 @@
 # Longest Collatz Sequence - Barlow's Solution
 [https://projecteuler.net/problem=14](https://projecteuler.net/problem=14)
 
-
+**Instructions:** [https://projecteuler.net/problem=14](https://projecteuler.net/problem=14)
+**Author:** Barlow Tucker
+**Language:** Swift
+**Fastest Time:** 1.8 seconds
 
 ```swift
 class Euler14 {
