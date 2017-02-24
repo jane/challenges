@@ -40,3 +40,8 @@ Challenges Repo
 |-- README.md
 
 ```
+
+## Challenges
+|Week|Challenge|
+|:---|:---|
+|Feb 24, 17|[Scrabble](./ScrabbleChallenge)
