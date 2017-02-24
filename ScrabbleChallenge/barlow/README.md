@@ -94,3 +94,35 @@ class ScrabbleChallenge: NSObject {
 }
 
 ```
+
+## Output
+
+```
+Answer: 
+Challenge:
+-----------
+daily can be made with the tiles ["l", "a", "d", "i", "l", "m", "y"]
+eerie can NOT be made with the tiles ["e", "e", "r", "r", "i", "i", "n"]
+program can be made with the tiles ["o", "r", "r", "p", "g", "m", "a"]
+program can NOT be made with the tiles ["o", "r", "p", "p", "g", "m", "a"]
+
+Bonus 1:
+-----------
+pizzazz can be made with the tiles ["p", "i", "z", "z", "a", "?", "?"]
+pizzazz can NOT be made with the tiles ["p", "i", "i", "z", "z", "a", "?"]
+program can be made with the tiles ["a", "?", "?", "?", "?", "?", "?"]
+program can NOT be made with the tiles ["b", "?", "?", "?", "?", "?", "?"]
+
+Bonus 2:
+-----------
+The longest word from the following tiles is coauthored: ["d", "c", "t", "h", "o", "y", "u", "e", "o", "r", "z", "a"]
+The longest word from the following tiles is turquois: ["u", "r", "u", "q", "r", "n", "y", "t", "r", "o", "i", "s"]
+The longest word from the following tiles is greengrocery: ["r", "r", "y", "q", "e", "i", "a", "e", "g", "i", "c", "g", "e", "o", "?", "?"]
+The longest word from the following tiles is subordinately: ["u", "d", "o", "s", "j", "a", "n", "y", "u", "i", "u", "e", "b", "r", "?", "?"]
+The longest word from the following tiles is ovolactovegetarian: ["v", "a", "a", "k", "o", "j", "e", "a", "i", "e", "t", "g", "?", "?", "?", "?", "?", "?", "?", "?"]
+
+Bonus 3:
+-----------
+
+Found in 8306.97399377823 milliseconds
+```
