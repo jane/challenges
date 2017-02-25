@@ -46,7 +46,7 @@ namespace Scrabble
 				return true;
 
 			// search
-			int found = 0;
+			bool found = true;
 			for (int i = 0; i < word.Length; i++)
 			{
 				string l = word[i].ToString();
@@ -54,24 +54,20 @@ namespace Scrabble
 				{
 					// found
 					letters = letters.Remove(letters.IndexOf(l, StringComparison.CurrentCulture), 1);
-					found++;
 				}
 				else if (letters.Contains("?"))
 				{
 					// wildcard
 					letters = letters.Remove(letters.IndexOf("?", StringComparison.CurrentCulture), 1);
-					found++;
 				}
 				else
 				{
-					return false;
+					found = false;
+					break;
 				}
 			}
 
-			if (word.Length == found)
-				return true;
-
-			return false;
+			return found;
 		}
 	}
 }
