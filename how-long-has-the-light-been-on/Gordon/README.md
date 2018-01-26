@@ -5,8 +5,6 @@ https://www.reddit.com/r/dailyprogrammer/comments/7qn07r/20180115_challenge_347_
 
 ## Code
 ```swift
-let input = "1 3\n2 3\n4 5"
-
 struct TimeRange {
     let start: Int
     let end: Int
@@ -15,37 +13,40 @@ struct TimeRange {
     }
 }
 
-// Parse the string into time ranges
-let timeRanges: [TimeRange] = input.components(separatedBy: .newlines).flatMap({
-    let parts = $0.components(separatedBy: .whitespaces)
-    guard parts.count == 2, let start = Int(parts[0]), let end = Int(parts[1]) else { return nil }
-    
-    return TimeRange(start: start, end: end)
-})
-
-// Sort the time ranges so we can iterate easier
-let sortedTimeRanges = timeRanges.sorted(by: { $0.start < $1.start })
-
-// If we don't have even one to work with, just return 0 here
-guard var current = timeRanges.first else { return 0 }
-
-// Loop over results, combining until we find a gap in time someone was in the room
-var mergedTimeRanges: [TimeRange]
-for range in timeRanges {
-    if range.start <= current.end {
-        // Join the ranges since they overlap
-        current = TimeRange(start: current.start, max(range.end, current.end))
-    } else {
-        // Found a gap
-        merged.append(current)
-        current = range
-    }
+func parseInput(_ input: String) -> [TimeRange] {
+    return input.components(separatedBy: .newlines).flatMap({
+        let parts = $0.components(separatedBy: .whitespaces)
+        guard parts.count == 2, let start = Int(parts[0]), let end = Int(parts[1]) else { return nil }
+        return TimeRange(start: start, end: end)
+    })
 }
-// Add the trailing range
-merged.append(current)
 
-// Add all the merged times together
-let result = merged.reduce(0, { $0 + $1.time })
+func calculateTimeInRoom(timeRanges: [TimeRange]) -> Int {
+    
+    // Sort the time ranges so we can iterate easier
+    let timeRanges = timeRanges.sorted(by: { $0.start < $1.start })
+    
+    // If we don't have even one to work with, just return 0 here
+    guard var current = timeRanges.first else { return 0 }
+    
+    // Loop over results, combining until we find a gap in time someone was in the room
+    var mergedTimeRanges: [TimeRange] = []
+    for range in timeRanges {
+        if range.start <= current.end {
+            // Join the ranges since they overlap
+            current = TimeRange(start: current.start, end: max(range.end, current.end))
+        } else {
+            // Found a gap
+            mergedTimeRanges.append(current)
+            current = range
+        }
+    }
+    // Add the trailing range
+    mergedTimeRanges.append(current)
+    
+    // Add all the merged times together
+    return mergedTimeRanges.reduce(0, { $0 + $1.time })
+}
 
-print(result)
+print(calculateTimeInRoom(timeRanges: parseInput("1 3\n2 3\n4 5")))
 ```
