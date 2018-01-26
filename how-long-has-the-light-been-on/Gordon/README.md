@@ -50,3 +50,14 @@ func calculateTimeInRoom(timeRanges: [TimeRange]) -> Int {
 
 print(calculateTimeInRoom(timeRanges: parseInput("1 3\n2 3\n4 5")))
 ```
+
+```swift
+func run(_ input: String) -> Int {
+    var flags: [Int] = []
+    let rows: [[String]] = input.components(separatedBy: .newlines).map({ $0.components(separatedBy: .whitespaces) })
+    let ranges = rows.flatMap({ $0.count == 2 ? (start: Int($0[0])!, end: Int($0[1])!) : nil })
+    while flags.count < ranges.max(by: { $0.end < $1.end })!.end { flags.append(0) }
+    ranges.forEach({ for i in $0.start ..< $0.end { flags[i] = 1 } })
+    return flags.reduce(0, { $0 + $1 })
+}
+```
