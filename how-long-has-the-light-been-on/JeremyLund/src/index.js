@@ -8,13 +8,13 @@ export function calculateLightsOn(visitors = []) {
     .reduce(
       (acc, [start, end]) => {
         for (let i = start; i < end; i++) {
-          acc[i] = (acc[i] || 0) + 1 // increments the value of each hour they were in the room.
+          acc[i] = true
         }
         return acc
       },
       [], // initial empty array
     )
-    .filter(hour => hour).length // retains any hours with a value of 1 or more
+    .filter(hour => hour).length // retains any hours with a true value
 }
 
 /**
