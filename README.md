@@ -47,3 +47,4 @@ Challenges Repo
 |Feb 10. 17|[Periodic Table Words](./periodic-table-words)
 |Feb 17, 17|[Euler 14](./Euler%2014)
 |Feb 24, 17|[Scrabble](./ScrabbleChallenge)
+|Jan 26, 18|[How Long Has The Light Been On](./how-long-has-the-light-been-on)
