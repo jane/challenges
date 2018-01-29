@@ -27,4 +27,4 @@ for f in $(find sample-inputs -type f | sort); do
   cat $f | stack exec lights-exe
   echo ""
 done
-```# lights
+```
