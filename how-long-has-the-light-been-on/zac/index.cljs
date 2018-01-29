@@ -1,8 +1,6 @@
 #!/usr/bin/env lumo
 
 ;; Note: this is totally unfinished.
-; I got stuck trying to figure out mapping over nested vectors
-; idiomatically.
 
 (ns lights.core
   (:require [clojure.string :as s]))
@@ -29,11 +27,9 @@
 
 (defn fkeep [xs] (keep not-empty xs))
 
-(defn splits [xs] (s/split-lines xs))
-
 (defn split-space [xs] (s/split xs " "))
 
-(defn pi [n] (js/parseInt n 10))
+(defn parse-int [n] (js/parseInt n 10))
 
 (defn main [a] 14)
 
@@ -41,4 +37,10 @@
 
 (assert (= expected (main bonus-input)))
 
-(prn (into [] (map split-space (fkeep (splits bonus-input)))))
+(defn sub-map [f xs] (map #(map f %) xs))
+
+(prn
+  (into []
+        (sub-map parse-int
+                 (map split-space
+                      (fkeep (s/split-lines bonus-input))))))
