@@ -1,0 +1,65 @@
+-- This file has been generated from package.yaml by hpack version 0.20.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: fe19976d53ec25ebbb76d6d28e38a3f89ed094db8bc64acb9b17ac69fc2a9ebd
+
+name:           lights
+version:        0.1.0.0
+description:    Please see the README on Github at <https://github.com/spicydonuts/lights#readme>
+homepage:       https://github.com/spicydonuts/lights#readme
+bug-reports:    https://github.com/spicydonuts/lights/issues
+author:         Michael Trotter
+maintainer:     spicydonuts@gmail.com
+copyright:      2018 Michael Trotter
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+cabal-version:  >= 1.10
+
+extra-source-files:
+    ChangeLog.md
+    README.md
+
+source-repository head
+  type: git
+  location: https://github.com/spicydonuts/lights
+
+library
+  hs-source-dirs:
+      src
+  build-depends:
+      base >=4.7 && <5
+    , containers
+  exposed-modules:
+      Lights
+  other-modules:
+      Paths_lights
+  default-language: Haskell2010
+
+executable lights-exe
+  main-is: Main.hs
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , containers
+    , lights
+  other-modules:
+      Paths_lights
+  default-language: Haskell2010
+
+test-suite lights-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , containers
+    , lights
+  other-modules:
+      Paths_lights
+  default-language: Haskell2010
