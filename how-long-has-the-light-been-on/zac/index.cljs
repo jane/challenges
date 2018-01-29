@@ -1,5 +1,9 @@
 #!/usr/bin/env lumo
 
+;; Note: this is totally unfinished.
+; I got stuck trying to figure out mapping over nested vectors
+; idiomatically.
+
 (ns lights.core
   (:require [clojure.string :as s]))
 
