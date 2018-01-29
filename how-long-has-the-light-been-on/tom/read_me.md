@@ -1,0 +1,1 @@
+to run: `./target/release/tom`
