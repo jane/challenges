@@ -4,8 +4,8 @@
 
 Converts the inputs to a Set of "hours on", then returns its length.
 
-- [src/Lights.hs](src/Lights.hs) contains the "business logic"
-- [app/Main.hs](app/Main.hs) contains the code to read `stdin` as a string and print the final number of "hours on"
+- [app/Main.hs](app/Main.hs) contains the code to read `stdin` as a string and print the final number of "hours on" (both side effects)
+- [src/Lights.hs](src/Lights.hs) contains the pure (no side effects) "business logic"
 
 ## Running the code
 
