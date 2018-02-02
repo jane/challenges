@@ -1,4 +1,4 @@
-```
+```swift
 let names = try! String(contentsOfFile: "/Users/gordon/Projects/Challenges/Fib/Fib/Fib/names.txt", encoding: .utf8).lowercased().trimmingCharacters(in: CharacterSet(charactersIn: "\"\r\n,")).components(separatedBy: "\",\"").sorted()
 
 let score = names.enumerated().reduce(0, {
