@@ -1,7 +1,7 @@
 library(readr)
 library(tidytext)
 names <- (read_lines('~/Downloads/names.txt') %>% strsplit(split = ','))[[1]]
-names_df <- data_frame(name=names3)
+names_df <- data_frame(name=names)
 names_df2 <- names_df %>% 
   arrange(name) %>%
   mutate(position = row_number())
