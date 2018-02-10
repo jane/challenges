@@ -11,21 +11,19 @@ fn main() {
     let input: Vec<&str> = input.split_whitespace().collect();
 
     if input.len() > 0 {
-      let converted_input: Vec<u32> = input.into_iter()
-                                           .map(|num: &str| num.parse().unwrap())
-                                           .collect();
-
-      numbers.push(converted_input.clone())
+      numbers.push(input.into_iter()
+                        .map(|num: &str| num.parse().unwrap())
+                        .collect()
+      )
     } else {
       accept_input = false;
-      continue;
     }
   };
 
   let acc = numbers.remove(0);
 
-  let whatever: Vec<u32> = numbers.iter().fold(acc, |acc: Vec<u32>, row: &Vec<u32>| {
-    let mut thing: Vec<u32> = Vec::new();
+  let summed_paths: Vec<u32> = numbers.iter().fold(acc, |acc: Vec<u32>, row: &Vec<u32>| {
+    let mut current_paths: Vec<u32> = Vec::new();
 
     for (i, num) in row.iter().enumerate() {
       let mut left: u32 = 0;
@@ -39,17 +37,17 @@ fn main() {
       }
 
       if left > right {
-        thing.push(left)
+        current_paths.push(left)
       } else {
-        thing.push(right)
+        current_paths.push(right)
       }
     }
 
-    return thing;
+    return current_paths;
   });
 
-  match whatever.iter().max() {
-    Some(max) =>   println!("the max path is {}", max),
+  match summed_paths.iter().max() {
+    Some(max) => println!("the max path is {}", max),
     None => println!("there wasn't a max!")
   };
 }
