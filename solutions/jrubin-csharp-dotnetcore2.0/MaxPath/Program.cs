@@ -16,7 +16,7 @@ namespace MaxPath
 			Console.ReadLine();
         }
 
-		private static float GetMaxTreePathValueFromParent(BinaryNode<int> parent)
+		private static float GetMaxTreePathValueFromParent(BinaryNode<int> parent, bool destroyTree = true)
 		{
 			var rows = parent.GetRows();
 			rows.Reverse();
@@ -33,6 +33,12 @@ namespace MaxPath
 						node.Value + node.Second.Value
 								? node.Value + node.First.Value
 								: node.Value + node.Second.Value;
+
+					if(destroyTree)
+					{
+						node.First = null;
+						node.Second = null;
+					}
 				}
 			}
 
