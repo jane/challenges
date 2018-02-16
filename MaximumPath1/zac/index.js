@@ -17,7 +17,7 @@ const nums = [ ...require('fs')
   .map((s) => s
     .split(' ')
     .filter((a) => a)
-    .map((a) => parseInt(a, 10)))]
+    .map((a) => parseInt(a, 10))) ]
 
 // helpers
 const range = (n) => Array.from({ length: n }, (_, i) => i)
