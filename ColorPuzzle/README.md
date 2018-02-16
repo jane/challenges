@@ -1,5 +1,4 @@
 # Color Puzzle
-> You can also find this challenge on [here on reddit](https://www.reddit.com/r/dailyprogrammer/comments/7riu6p/20180119_challenge_347_hard_hue_drops_puzzle/) as well.
 
 ## Description
 The puzzle opens with a group of tiles of six random colors. The tile in the upper left remains wild for you to change. Tile colors change by flooding from the start tile to directly connected tiles in the four cardinal directions (not diagonals). Directly connected tiles convert to the new color, allowing you to extend the size of the block. The puzzle challenges you to sequentially change the color of the root tile until you grow the block of tiles to the target color in 25 moves or fewer.
@@ -51,3 +50,5 @@ V
 
 ## Bonus
 Render the game colors instead of using ASCII and animate the computer moves
+
+> You can also find this challenge on [here on reddit](https://www.reddit.com/r/dailyprogrammer/comments/7riu6p/20180119_challenge_347_hard_hue_drops_puzzle/) as well.
