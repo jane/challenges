@@ -3,3 +3,7 @@
 *~
 .idea
 target/
+.stack-work/
+.cabal-sandbox/
+*.o
+*.hi
