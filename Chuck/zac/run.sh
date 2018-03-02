@@ -1,5 +1,6 @@
 #!/bin/sh
 
+mpv --no-video https://www.bensound.com/bensound-music/bensound-goinghigher.mp3 &
 if hash xdg-open 2>/dev/null; then opener=xdg-open; else opener=open; fi
 curl https://picsum.photos/800/500 > /tmp/tmp.jpg
 text=`curl -g 'http://api.icndb.com/jokes/random?limitTo=[nerdy]' | jq .value.joke`
