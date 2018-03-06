@@ -2,7 +2,7 @@ module Main where
 
 import Data.BinPacking
 
--- this isn't clean, but i also don't know haskell, so it's fine
+-- i don't think this is idiomatic
 main :: IO ()
 main = do
   content <- readFile "test"
@@ -21,5 +21,5 @@ mapTuple = map toTuple
 mapInt :: [String] -> [Int]
 mapInt = map read
 
--- getting this far was hard enough... let someone else figure out bin packing
+-- there's a library for this!
 solve bins objs = length $ packLargeFirst bins objs

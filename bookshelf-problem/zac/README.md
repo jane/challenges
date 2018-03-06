@@ -1,6 +1,5 @@
-# shelves
+This isn't quite correct, but there's a time limit so I didn't want to keep
+poking at it.
 
-this isn't quite correct -- i seem to be getting a `1` when i should get a `2`.
-
-to check it out: `stack build && stack exec shelves`. to change the input file,
-edit line 8 of `src/Main.hs`.
+Assuming you have Stack installed, `stack build && stack exec shelves`. TO
+change the input, change `content <- readFile "test"`.
