@@ -44,7 +44,12 @@ Challenges Repo
 ## Challenges
 |Week|Challenge|
 |:---|:---|
+|Mar 3, 18|[Chuck](./Chuck)
+|Feb 23, 18|[Bookshelf Problem](./bookshelf-problem)
+|Feb 16, 18|[Color Puzzle](./ColorPuzzle) 
+|Feb 9, 18|[Maximum Path1](./MaximumPath)
+|Feb 2, 18|[NameScore](./NameScore)
+|Jan 26, 18|[How Long Has The Light Been On](./how-long-has-the-light-been-on)
 |Feb 24, 17|[Scrabble](./ScrabbleChallenge)
 |Feb 17, 17|[Euler 14](./Euler%2014)
 |Feb 10. 17|[Periodic Table Words](./periodic-table-words)
-|Jan 26, 18|[How Long Has The Light Been On](./how-long-has-the-light-been-on)
