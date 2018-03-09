@@ -1,20 +1,26 @@
 ## Description
-You have an enormous book collection and want to buy some shelfs. You go to a bookshelfstore and they sell all kinds of shelfs. The wierd part is, some shelfs are different in length but they all cost the same.
 
-You now want to puzzle your collection so that you can fit as many books on the least number of shelfs
+You have an enormous book collection and want to buy some shelves.
+You go to a bookshelf store and they sell all kinds of shelves.
+The weird part is, some shelves are different in length but they all cost the same.
 
-**Input description**  
-The first line are the available bookshelfs in the store, seperated by a space.  
+You now want to puzzle your collection so that you can fit as many books on the least number of shelves
 
-From the second line on you get the book collections with the width followed by a title  
+## Input description
 
-**Output description**  
-The number of bookshelfs you have to buy. If you can't fit them, even just one, you respond with imposible.
+The first line are the available bookshelves in the store, separated by a space.
+
+From the second line on you get the book collections with the width followed by a title
+
+## Output description
+
+The number of bookshelves you have to buy. If you can't fit them, even just one, you respond with impossible.
 
 ## Examples
 
-**Example 1**
-```
+#### Example 1
+
+```text
 150 150 300 150 150
 70 A Game of Thrones
 76 A Clash of Kings
@@ -23,28 +29,30 @@ The number of bookshelfs you have to buy. If you can't fit them, even just one, 
 105 A Dance With Dragons
 ```
 
-**Example 1 Output**
-```
+#### Example 1 Output
+
+```text
 2
 ```
 
-**Example 2**
+#### Example 2
 
-```
+```text
 500 500 500
 1309 Artamene
 303 A la recherche du temps perdu
 399 Mission Earth
 ```
 
-**Example 2 Output**
-```
+#### Example 2 Output
+
+```text
 impossible
 ```
 
 ## Challenge
 
-```
+```text
 270 142 501 865 384 957 947 603 987 428 907 10 691 707 397 917 492 750 935 672 935 712 234 683 702 508 822 379 36 59 382 280 867 155 829 756 360 995 526 52 559 250 450 843 523 446 972 555 55 985 81 831 43 802 473 379 461 639 910 529 128 878 914 426 569 59 139 913 69 649 501 889 470 112 92 6 80 571 220 22 676 91 889 799 115 194 555 477 277 718 378 838 822 358 178 562 674
 96 b400786
 69 b390773
@@ -163,11 +171,16 @@ impossible
 46 b453542
 ```
 
-**Notes/Hints**  
+#### Notes/Hints
+
 If a book is 78 wide and a bookshelf is 80 you can't fit a book on it anymore and you lose that 2 space.
 
-**Bonus 1**  
-List the shelfs you are going to use
+## Bonus
 
-**Bonus 2**  
-List the books on each shelf, if imposible list the books that don't fit.
+#### Bonus 1
+
+List the shelves you are going to use
+
+#### Bonus 2
+
+List the books on each shelf, if impossible list the books that don't fit.

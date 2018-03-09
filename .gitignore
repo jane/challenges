@@ -3,6 +3,7 @@
 *~
 .idea
 target/
+node_modules
 .stack-work/
 .cabal-sandbox/
 *.o
