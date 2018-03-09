@@ -39,7 +39,6 @@ static func pancakeSort(values: [Int]) -> (steps: Int, sorted: [Int]) {
             currentIndex += 1
         }
         
-        // I did this backwards, so I have to flip one extra time. Oops.
-        return (steps: flips + 1, sorted: sorted.reversed())
+        return (steps: flips, sorted: sorted.reversed())
     }
 ```
