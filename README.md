@@ -16,7 +16,8 @@ Once you complete your challenge (or hit the 60 minute limit), create a folder i
 
 Example:
 
-```
+```text
+
 Challenges Repo
 |-- Challenge 1
 |	|-- Barlow
