@@ -20,7 +20,7 @@ const findClosest = (input) => {
   strings.forEach((string) => {
     const lens = strings.filter((s) => s !== string).map((s) => diff(s, string))
     const min = Math.min(...lens)
-    if (lowestDiff === null || min <= lowestDiff) { // > or >= get different results so idk
+    if (lowestDiff === null || min <= lowestDiff) {
       lowestDiff = min
       lowestString = string
     }
