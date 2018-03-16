@@ -1,6 +1,7 @@
-# Maximum Path 1
+## Maximum Path 1
 
-By starting at the top of the triangle below and moving to adjacent numbers on the row below, the maximum total from top to bottom is 23.
+By starting at the top of the triangle below and moving to adjacent numbers on the row below, the maximum total from
+top to bottom is 23.
 
 ![maxPath](./maxPath.png)
 
@@ -8,7 +9,8 @@ That is, 3 + 7 + 4 + 9 = 23.
 
 Find the maximum total from top to bottom of the triangle below:
 
-```
+```text
+
                            75
                           95 64
                         17 47 82
@@ -24,6 +26,8 @@ Find the maximum total from top to bottom of the triangle below:
     91 71 52 38 17 14 91 43 58 50 27 29 48
   63 66 04 68 89 53 67 30 73 16 69 87 40 31
 04 62 98 27 23 09 70 98 73 93 38 53 60 04 23
+
 ```
 
-> NOTE: As there are only 16384 routes, it is possible to solve this problem by trying every route. However, try to find a better solution
+> NOTE: As there are only 16384 routes, it is possible to solve this problem by trying every route. However, try to
+find a better solution

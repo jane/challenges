@@ -48,6 +48,7 @@ Challenges Repo
 
 |Week|Challenge|
 |:---|:---|
+|Mar 16, 2018|[Closest String](./closest-string)
 |Mar 9, 2018|[Pancake Flipping](./pancake-flipping)
 |Mar 3, 2018|[Chuck](./Chuck)
 |Feb 23, 2018|[Bookshelf Problem](./bookshelf-problem)

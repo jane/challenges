@@ -4,7 +4,7 @@
   "description": "weekly challenges for jane employees",
   "main": "index.js",
   "scripts": {
-    "test:lint": "markdownlint **/*.md"
+    "lint": "markdownlint **/*.md"
   },
   "repository": {
     "type": "git",
