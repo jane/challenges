@@ -1,35 +1,33 @@
 #!/usr/bin/env node
 
-const diff = (a, b) => {
-  let n = 0
-  const x = a.split('')
-  const y = b.split('')
-  x.forEach((el, i) => {
-    if (y[i] !== el) n++
-  })
-  return n
-}
-
 const parseInput = (text) => [...new Set(text.trim().split('\n'))].sort()
+const range = ({ length }) => Array.from({ length }, (_, i) => i)
+const forRange = (a, f) => range(a).forEach((_, i) => f(i))
+const solve = (input, f) => console.log(f(input))
+const sum = (xs) => xs.reduce((p, c) => p + c, 0)
+const split = (a) => a.split('')
+const diff = (a, b) => split(a).reduce((p, c, i) => (c !== b[i] ? 1 : 0) + p, 0)
 
 const findClosest = (input) => {
-  let lowestDiff = null
-  let lowestString = ''
   const strings = parseInput(input)
+  let j = 0
+  let a = []
+  let b = []
 
-  strings.forEach((string) => {
-    const lens = strings.filter((s) => s !== string).map((s) => diff(s, string))
-    const min = Math.min(...lens)
-    if (lowestDiff === null || min <= lowestDiff) {
-      lowestDiff = min
-      lowestString = string
-    }
+  forRange(strings, (i) => {
+    a[i] = []
+    forRange(strings, (j) => {
+      a[i][j] = diff(strings[i], strings[j])
+    })
+  })
+  forRange(strings, (i) => {
+    b[i] = sum(a[i])
+  })
+  forRange(b, (i) => {
+    if (b[i] < b[j]) j = i
   })
 
-  return lowestString
+  return strings[j]
 }
 
-const inputs = require('./inputs')
-inputs.forEach((i) => {
-  console.log(findClosest(i))
-})
+require('./inputs').forEach((i) => solve(i, findClosest))
