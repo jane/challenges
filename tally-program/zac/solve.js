@@ -5,8 +5,7 @@ const sortObj = (obj) => {
       res.push([ o, obj[o] ])
     })
   return res
-    .sort((a, b) => a[1] - b[1])
-    .reverse()
+    .sort((a, b) => b[1] - a[1])
     .reduce((p, [ k, v ]) => ({
       ...p, [k]: v
     }), {})
