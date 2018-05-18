@@ -1,3 +1,5 @@
+const { sortByScoreDescPlayerAsc, toPlayerScoreOutput } = require('./util')
+
 function calculate(input) {
   const result = input.split('').reduce(
     (acc, curr) => {
@@ -14,12 +16,9 @@ function calculate(input) {
     },
   )
   return Object.entries(result)
-    .sort((a, b) => {
-      const score = b[1] - a[1]
-      const name = b[0] - a[0]
-      return score === 0 ? name : score
-    })
-    .map(val => val.join(':'))
+    .map(([player, score]) => ({ player, score }))
+    .sort(sortByScoreDescPlayerAsc)
+    .map(toPlayerScoreOutput)
     .join(', ')
 }
 
