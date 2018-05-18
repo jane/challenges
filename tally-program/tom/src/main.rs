@@ -1,7 +1,6 @@
 use std::io;
 use std::collections::HashMap;
 
-
 fn main() {
   let mut strings = Vec::new();
 
@@ -10,7 +9,6 @@ fn main() {
     io::stdin().read_line(&mut input)
                .expect("failed to read line");
     let input = input.trim();
-
 
     if input.len() > 1 {
       strings.push(input.to_owned());
@@ -23,19 +21,13 @@ fn main() {
   for string in strings {
     let mut holder = HashMap::new();
     for letter in string.chars() {
-      if letter.is_lowercase() {
-        let val = match holder.get(&letter) {
-          Some(x) => x + 1,
-          None => 1
-        };
-        holder.insert(letter, val);
-      } else {
-        let val = match holder.get(&letter.to_ascii_lowercase()) {
-          Some(x) => x - 1,
-          None => -1
-        };
-        holder.insert(letter.to_ascii_lowercase(), val);
-      }
+      let val = if letter.is_lowercase() { 1 } else { -1 };
+      let letter = letter.to_ascii_lowercase();
+      let val = match holder.get(&letter) {
+        Some(x) => x + val,
+        None => val
+      };
+      holder.insert(letter, val);
     }
     output.push(holder)
   }
