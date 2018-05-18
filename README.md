@@ -49,6 +49,7 @@ Challenges Repo
 
 |Week|Challenge|
 |:---|:---|
+|May 18, 2018|[Tally Program](./tally-program)
 |Mar 16, 2018|[Closest String](./closest-string)
 |Mar 9, 2018|[Pancake Flipping](./pancake-flipping)
 |Mar 3, 2018|[Chuck](./Chuck)
