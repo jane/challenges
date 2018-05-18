@@ -1,0 +1,19 @@
+{
+  "line-length": false,
+  "no-duplicate-header": false,
+  "no-trailing-punctuation": false,
+  "no-alt-text": false,
+  "first-line-h1": false,
+  "first-header-h1": false,
+  "header-increment": false,
+  "MD013": {
+    "line_length": 120,
+    "code_blocks": false,
+    "tables": false
+  },
+  "no-inline-html": {
+    "allowed_elements": [
+      "kbd"
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "challenges",
+  "version": "1.0.0",
+  "description": "weekly challenges for jane employees",
+  "main": "index.js",
+  "scripts": {
+    "lint": "markdownlint **/*.md"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jane/challenges.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jane/challenges/issues"
+  },
+  "homepage": "https://github.com/jane/challenges#readme",
+  "dependencies": {
+    "markdownlint-cli": "^0.7.1"
+  }
+}

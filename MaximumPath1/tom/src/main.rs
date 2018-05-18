@@ -51,6 +51,3 @@ fn main() {
     None => println!("there wasn't a max!")
   };
 }
-
-
-//
