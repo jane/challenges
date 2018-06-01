@@ -44,7 +44,7 @@ fn check_word(word: &str) -> Vec<String> {
 
 
 fn main() {
-  let mut file = File::open("../enable1.txt").expect("file not found");
+  let mut file = File::open("../../assets/enable1.txt").expect("file not found");
   let mut strings = String::new();
   file.read_to_string(&mut strings)
       .expect("something went wrong");
