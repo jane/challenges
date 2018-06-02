@@ -7,7 +7,7 @@
   ["Gwkki we are hyptzgsi martians rt zubq in qrsvr."
    "A oweaib who fprd not zfqzh challenges should mt ewlst to kze"])
 (def words ; read in the file and get it into a vector
-  (into [] (remove cs/blank?  (cs/split-lines (js/fs.readFileSync "../enable1.txt" "utf8")))))
+  (into [] (remove cs/blank?  (cs/split-lines (js/fs.readFileSync "../../assets/enable1.txt" "utf8")))))
 (def rows ; keyboard
   ["qwertyuiop" "asdfghjkl" "zxcvbnm"])
 
