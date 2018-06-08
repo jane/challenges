@@ -24,7 +24,8 @@ parogative
 suparseed
 `.split('\n').filter(Boolean)
 
-const isPrefixOf = (a, b) => b.startsWith(a)
+const isPrefixOf = (a, b) =>
+  b.startsWith(a)
 
 const findValid = (word) => {
   const w = word.slice(0, -1)
@@ -33,12 +34,10 @@ const findValid = (word) => {
 
 const insertSquiggle = (correct, incorrect) => {
   const i = incorrect.replace(correct, '')
-  return correct + i[0] + '<' + i.substr(1)
+  return `${correct}${i[0]}<${i.substr(1)}`
 }
 
-const fixed = input.reduce((p, word) => {
-  p.push(words.includes(word) ? word : insertSquiggle(findValid(word), word))
-  return p
-}, [])
+const fixed = input.reduce((p, word) =>
+  p.concat(words.includes(word) ? word : insertSquiggle(findValid(word), word)), [])
 
 console.log(fixed.join('\n'))
