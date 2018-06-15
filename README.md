@@ -49,6 +49,7 @@ Challenges Repo
 
 |Week|Challenge|
 |:---|:---|
+|Jun 15, 2018|[Adding Calculator](./adding-calculator)
 |May 25, 2018|[Home-Row Spell Check](./home-row-spell-check)
 |May 18, 2018|[Tally Program](./tally-program)
 |Mar 16, 2018|[Closest String](./closest-string)
