@@ -1,11 +1,2 @@
 #!/usr/bin/env node
-
-console.log((() => {
-  try {
-    const s = process.argv[2]
-    const answer = eval(s.replace(/\^/g, '**'))
-    if (answer === Infinity) return "Not-defined"
-    if (answer === parseInt(answer)) return answer
-    else return "Non-integral answer"
-  } catch (_) { }
-})())
+console.log((()=>{let a=eval(process.argv[2].replace(/\^/g,'**'));return a===Infinity?'Not-defined':a===parseInt(a)?a:'Non-integral answer'})())
