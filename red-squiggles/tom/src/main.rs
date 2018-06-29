@@ -1,8 +1,6 @@
 use std::io::Read;
 use std::fs::File;
 use std::collections::HashMap;
-use std::sync::Arc;
-
 
 struct Trie {
   children: HashMap<char, Trie>,
@@ -10,13 +8,21 @@ struct Trie {
 }
 
 impl Trie {
-  pub fn insert(&mut self, new_val: &char) {
-    match self.children.get(new_val) {
-      Some(_) => {}
+  pub fn insert(&mut self, new_val: &char) -> &Trie {
+    let p = match self.children.get(new_val) {
+      Some(child) => child,
       None => {
         self.children.insert(new_val.clone(), Trie { children: HashMap::new(), value: new_val.clone() });
+        self.children.get(new_val).unwrap()
       }
     };
+    p
+  }
+
+  pub fn insert_word(&mut self, new_word: &str) {
+    let mut chars = new_word.chars();
+    self.insert(&chars.next().unwrap());
+    self.insert_word(&chars.collect::<String>())
   }
 }
 
@@ -26,21 +32,13 @@ fn main() {
   let mut strings = String::new();
   file.read_to_string(&mut strings)
       .expect("something went wrong");
-  let start_node: Trie = Trie { children: HashMap::new(), value: ' ' };
-  let dictionary = strings
+  let mut dictionary = Trie { children: HashMap::new(), value: ' ' };
+  strings
     .split_whitespace()
-    .fold(start_node, |mut acc: Trie, c: &str| {
-      let mut word = c.chars();
-      let first = word.next().unwrap();
-      acc.insert(&first);
-      let current_node = &acc.children.get(&first).unwrap();
+    .for_each(|word: &str| {
+      dictionary.insert_word(word)
+    })
 
-      word.for_each(|letter: char| {
-        current_node.insert(&letter);
-       let current_node = &current_node.children.get(&letter).unwrap();
-      });
-      acc
-    });
 
 //  let mut input: String = String::new();
 //  io::stdin().read_line(&mut input)
