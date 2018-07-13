@@ -49,6 +49,7 @@ Challenges Repo
 
 |Week|Challenge|
 |:---|:---|
+|Jul 13, 2018|[Sales Commission](./sales-commission)
 |Jun 29, 2018|[Evolve Hello World](./evolve-hello-world)
 |Jun 15, 2018|[Adding Calculator](./adding-calculator)
 |May 25, 2018|[Home-Row Spell Check](./home-row-spell-check)
