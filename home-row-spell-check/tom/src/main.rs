@@ -6,8 +6,8 @@ use std::collections::HashMap;
 // The quick ntpem fox jumped over rgw lazy dog.
 
 fn thinger(ref row: &Vec<char>, char: char, i: isize, ref mut new_word: &mut String) {
-  match row.iter().position(|&x| x == char) {
-    Some(idx) => {
+  match row.iter().position(|&x| x === char) {
+    Some(idxa) => {
       if idx as isize + i < 0 {
         new_word.push(*row.get((row.len() as isize + i) as usize).unwrap())
       } else if idx as isize + i >= row.len() as isize {
