@@ -49,6 +49,7 @@ Challenges Repo
 
 |Week|Challenge|
 |:---|:---|
+|Nov 9, 2018|[Word Funnel](./word-funnel)
 |Jul 13, 2018|[Sales Commission](./sales-commission)
 |Jun 29, 2018|[Evolve Hello World](./evolve-hello-world)
 |Jun 15, 2018|[Adding Calculator](./adding-calculator)
